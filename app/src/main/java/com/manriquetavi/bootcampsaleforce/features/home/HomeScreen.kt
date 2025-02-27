@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -25,8 +26,8 @@ import com.manriquetavi.bootcampsaleforce.User
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(userViewModel: HomeViewModel = hiltViewModel()) {
-    val users by userViewModel.users.collectAsState()
+fun HomeScreen(homeViewModel: HomeViewModel = hiltViewModel()) {
+    val users by homeViewModel.users.collectAsState()
 
     Scaffold(
         topBar = { TopAppBar(title = { Text("Random Users") }) }
